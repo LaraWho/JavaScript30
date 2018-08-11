@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="84" class="key">
+        <kbd>T</kbd>
+        <span class="sound"></span>
+    </div>
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound"></span>
+    </div>
+    <div data-key="82" class="key">
+        <kbd>R</kbd>
+        <span class="sound"></span>
+    </div>
+    <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound"></span>
+    </div>
+    <div data-key="73" class="key">
+        <kbd>I</kbd>
+        <span class="sound"></span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound"></span>
+    </div>
+  </div>
+
+  <audio data-key="84" src="sounds/die.wav"></audio>
+  <audio data-key="65" src="sounds/fantastic.wav"></audio>
+  <audio data-key="82" src="sounds/phantasmagoria.wav"></audio>
+  <audio data-key="68" src="sounds/tardis.wav"></audio>
+  <audio data-key="73" src="sounds/geronimo.wav"></audio>
+  <audio data-key="83" src="sounds/chase.wav"></audio>
+
+<script>
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+
+</body>
+</html>
