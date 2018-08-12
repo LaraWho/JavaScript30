@@ -13,14 +13,18 @@
         <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
       </div>
+      <div id="time"></div>
     </div>
+   
 
 
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Merienda:700');
+
     html {
       background: url('heather-zabriskie-65701-unsplash.jpg') center;
       background-size:cover;
-      font-family:'helvetica neue';
+      font-family: 'Merienda', cursive;
       text-align: center;
       font-size: 10px;
     }
@@ -35,6 +39,20 @@
       align-items: center;
     }
 
+    #time {
+      color: #FDE99A;
+      font-size: 8rem;
+      margin-top: 24px;
+      -webkit-text-stroke: 1px black;
+   text-shadow:
+       2px  2px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+      
+    }
+
     .clock {
       width: 40rem;
       height: 45rem;
@@ -44,10 +62,12 @@
       position: relative;
       padding:2rem;
       box-shadow:
-      0 0 0 4px rgb(253, 233, 154, 0.2),
-        inset 0 0 0 3px rgb(253, 233, 154),
-        inset 0 0 10px rgb(253, 233, 154),
-        0 0 10px rgb(253, 233, 154, 0.4);
+       2px  2px 0 #000,
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+       
     }
 
     .clock-face {
@@ -69,11 +89,13 @@
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
       box-shadow:
-        0 0 0 4px rgb(253, 233, 154, 0.2),
+        0 0 0 2px rgb(253, 233, 154, 0.2),
         inset 0 0 0 3px rgb(253, 233, 154),
         inset 0 0 10px rgb(253, 233, 154),
-        0 0 10px rgb(253, 233, 154, 0.4);
+        0 0 2px rgb(253, 233, 154, 0.4);
     }
+
+  
 
   </style>
 
@@ -97,6 +119,8 @@
       const hour = now.getHours();
       const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
       hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+
+      document.getElementById('time').innerHTML = hour + ":" + mins + ":" + seconds;
   }
 
   setInterval(setDate, 1000);
