@@ -43,8 +43,9 @@ const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb
       return `
         <li>
             <span class="name">${cityName}, ${stateName}</span>
-            <span class="population">${numberWithCommas(place.population)}</span>
-          
+            <span class="population">Population: ${numberWithCommas(place.population)}</span>
+            <span class="rank">Rank: ${place.rank}</span>
+
         </li>
         `;
     }).join('')

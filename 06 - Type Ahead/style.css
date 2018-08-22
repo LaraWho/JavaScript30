@@ -38,7 +38,7 @@
       margin: 0;
       padding: 0;
       position: relative;
-      /*perspective:20px;*/
+      /* perspective:20px; */
     }
     .suggestions li {
       background:white;
@@ -64,6 +64,12 @@
 
     span.population {
       font-size: 15px;
+      margin: 5px;
+    }
+
+    span.rank {
+      font-size: 15px;
+      margin: 5px;
     }
 
     .hl {
