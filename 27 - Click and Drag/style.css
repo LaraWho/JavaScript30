@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
+  background: url('./jason-leung-479251-unsplash.jpg') fixed;
   background-size: cover;
 }
 
@@ -17,6 +17,9 @@ body {
   font-size: 20px;
   margin: 0;
 }
+::-webkit-scrollbar {
+  display: none;
+  }
 
 .items {
   height:800px;
@@ -35,6 +38,7 @@ body {
   background: rgba(255,255,255,0.1);
   font-size: 0;
   perspective: 500px;
+  
 }
 
 .items.active {
